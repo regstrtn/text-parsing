@@ -27,19 +27,15 @@ __In summary, when building a general a lex/yacc application, the general proces
 Now run this executable on the raw HTML files that we downloaded using the crawler, and voila, page is parsed. 
 Only problem is, I do not know how to write the grammar or regular expressions. If anyone has the grammar or any helpful pointers, please message me.
 
+#### [General structure of a lex file is explained here](lex.md)
+#### If anyone wants to explain the general structure of a yacc file, please do mail me. 
+
 Thanks,
 Mohammad Luqman
 
 --------------------------------------------------------------------------------------------------------------
 ##### *This part is under construction*
 
-The General Format of a Lex File consists of three sections:
-1. Definitions
-2. Rules
-3. User Subroutines
-            
-
-Definitions consists of any  external 'C' definitions used in the lex actions or subroutines . e.g all preprocessor directives like #include, #define macros etc. These are simply copied to the lex.yy.c file.  The other type of definitions are Lex definitions which are essentially the lex substitution strings,lex start states and lex table size declarations.The Rules is the basic part which specifies the regular expressions and their corresponding actions. The User Subroutines are the function definitions of the functions that are used in the Lex actions.
 
 ##### How do we redirect the Stdin to a particular FILE * ?
 Normally the Lex takes the input from the Standard input through a macro definition
