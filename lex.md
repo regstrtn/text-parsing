@@ -7,7 +7,7 @@ The generated C file will have the name lex.yy.c
 The General Format of a Lex File consists of three sections:
 
 #### 1. Definitions:
-Anything in this part is simply copied the lex.yy.c file. This part generally includes #define, #include etc.
+Anything in this part is simply copied to lex.yy.c file. This part generally includes #define, #include etc.
 #### 2. Rules: 
 This is the cool part. Where you define regular epxressions and specify what actions will be taken when a match is found. These actions could be simple, or could be very complex functins. If the action is a function, then you need to define that function in section 3 of the file. 
 #### 3. User Subroutines
