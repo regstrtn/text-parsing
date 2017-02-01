@@ -6,16 +6,16 @@ The generated C file will have the name lex.yy.c
 
 The General Format of a Lex File consists of three sections:
 
-##### 1. Definitions:
+#### 1. Definitions:
 Anything in this part is simply copied the lex.yy.c file. This part generally includes #define, #include etc.
-##### 2. Rules: 
+#### 2. Rules: 
 This is the cool part. Where you define regular epxressions and specify what actions will be taken when a match is found. These actions could be simple, or could be very complex functins. If the action is a function, then you need to define that function in section 3 of the file. 
-##### 3. User Subroutines
+#### 3. User Subroutines
 These are C functions that you might want to put in that lex.yy.c file. 
 
-#### A sample lex file is explained below
+### A sample lex file is explained below
 
-##### Definition Part
+#### Definition Part
 	%{
 	#include<stdio.h>
 	#include<math.h>
@@ -23,7 +23,7 @@ These are C functions that you might want to put in that lex.yy.c file.
 	int yywrap(void);
 	%}
 	
-##### Rules part
+#### Rules part
 	%%
 	[0-9]+ {
 	 yylval.dval=atoi(yytext);
@@ -40,7 +40,7 @@ These are C functions that you might want to put in that lex.yy.c file.
 	. {return yytext[0];}
 	%%
 
-##### User Subroutines part
+#### User Subroutines part
 
 	int yywrap(){
 		  printf("End of parsing \n");
@@ -55,3 +55,5 @@ These are C functions that you might want to put in that lex.yy.c file.
 	 yyparse();
 	 return(0);
 	}
+
+Just put all the three parts above in a file and save it as something.l
