@@ -3,7 +3,7 @@
 What are lex and yacc? And why are they referred together. In very simple terms, lex will read a stream of text and identify useful terms/substrings (also known as tokens). These could be function names, if else statements etc. 
 Yacc will then take these tokens and find the general structure of the text stream, eg, detecting the start and end of a block of code etc.
 
-__  *What will we need for part 2 and 3 of this assignment?*  __
+#### *What will we need for part 2 and 3 of this assignment?* 
 
 1. One lex file (extension .l) - This file will have regular expressions to extract email addresses, html tags etc.
 2. One yacc file (extension .y)- This file will have grammar rules which will help us de-construct the html page into blocks: contact information, publications, research scholars etc.
