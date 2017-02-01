@@ -4,16 +4,18 @@ What are lex and yacc? And why are they referred together. In very simple terms,
 Yacc will then take these tokens and find the general structure of the text stream, eg, detecting the start and end of a block of code etc.
 
 *__ What will we need for part 2 and 3 of this assignment? __*
+
 1. One lex file (extension .l) - This file will have regular expressions to extract email addresses, html tags etc.
 2. One yacc file (extension .y)- This file will have grammar rules which will help us de-construct the html page into blocks: contact information, publications, research scholars etc.
 
-The lex and yacc tools will then take these files as input and will automatically generate C code. Commands: 
+The lex and yacc tools will then take these files as input and will automatically generate C code. Commands:
+
 1. lex lexfile.l
 2. yacc -d parsefile.y (Don't omit the -d flag)
 
 Then compile the generated C files. You might need to use some libraries while compiling (similar to -lpthread, -lm etc.)
 
-In summary, when building a general a lex/yacc application, the general process is:
+__In summary, when building a general a lex/yacc application, the general process is:__
 
     Run yacc on your parser definition file.
     Run lex on your lexical definition file.
