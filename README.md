@@ -8,12 +8,12 @@ Yacc will then take these tokens and find the general structure of the text stre
 1. One lex file (extension .l) - This file will have regular expressions to extract email addresses, html tags etc.
 2. One yacc file (extension .y)- This file will have grammar rules which will help us de-construct the html page into blocks: contact information, publications, research scholars etc.
 
-The lex and yacc tools will then take these files as input and will automatically generate C code. Commands:
+The lex and yacc tools will then take these files as input and will automatically generate C files. Commands:
 
 1. lex lexfile.l
 2. yacc -d parsefile.y (Don't omit the -d flag)
 
-Then compile the generated C files. You might need to use some libraries while compiling (similar to -lpthread, -lm etc.)
+You will see new C files in the same folder. Compile these generated C files. You might need to use some libraries while compiling (similar to -lpthread, -lm etc.)
 
 __In summary, when building a general a lex/yacc application, the general process is:__
 
