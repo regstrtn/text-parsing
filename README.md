@@ -13,7 +13,7 @@ When compiling a lex/yacc application, the general process is:
 ##### How do we redirect the Stdin to a particular FILE * ?
 Normally the Lex takes the input from the Standard input through a macro definition
 
-    #define  lex_input()    (((yytchar=yysptr>yysbuf?U(*--yysptr):getc(yyin))==10?                                                (yylineno++,yytchar):yytchar)==EOF?0:yytchar)
+    #define  lex_input() (((yytchar=yysptr>yysbuf?U(*--yysptr):getc(yyin))==10?(yylineno++,yytchar):yytchar)==EOF?0:yytchar)
 
     To redirect the yyyin from stdin just do the following
     FILE * fp=fopen("Filename","r");
