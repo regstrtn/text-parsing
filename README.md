@@ -25,6 +25,11 @@ __In summary, when building a general a lex/yacc application, the general proces
     Link lex, yacc, and your other sources into an executable.
 
 Now run this executable on the raw HTML files that we downloaded using the crawler, and voila, page is parsed. 
+#### Commands required to run
+    lex example4.l
+    yacc -d example4.y
+    cc lex.yy.c y.tab.c -o example4 
+
 Only problem is, I do not know how to write the grammar or regular expressions. If anyone has the grammar or any helpful pointers, please message me.
 
 #### [General structure of a lex file is explained here](lex.md)
