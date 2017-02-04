@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import re
 
 def savefile(fac_url):
   #baseurl = "http://iitkgp.ac.in"
@@ -8,10 +9,12 @@ def savefile(fac_url):
   r = requests.get(fac_url[:semicolon])
   print(fac_url)
   data = r.text
-  print(data)
   fname = fac_url[45:semicolon]
   f = open("./htmpages/"+fname+".html", 'w')
-  f.write(data)
+  cleaned = re.sub('data:image/jpeg;base64.*>', "searchforme>", data)
+  cleaned = re.sub('[ \r\t]{2,3}', ' ', cleaned)
+  cleaned = re.sub('[\n]{2,3}', '\n', cleaned) 
+  f.write(cleaned)
   f.close()
 
 def crawl():

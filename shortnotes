@@ -1,0 +1,101 @@
+/*
+commands: /* empty */
+        | commands command
+        ;
+
+command:
+        heat_switch
+        |
+        target_set
+        ;
+
+heat_switch:
+        TOKHEAT STATE
+        {
+                printf("\tHeat turned on or off\n");
+        }
+        ;
+
+target_set:
+        TOKTARGET TOKTEMPERATURE NUMBER
+        {
+                printf("\tTemperature set\n");
+        }
+        | NUMBER
+        ;
+*/
+
+_______________________HOW TO RUN FROM PYTHON________________________________
+import subprocess
+import sys
+subprocess.call(['./ex1','rajib.html'])
+
+_______________________CHARACTERS TO BE ESCAPED________________________________
+
+
+operators : " \ { } [ ] ^ $ < > ? . * + | () /
+
+_______________________Things to parse________________________________
+
+Name of faculty:
+Designation:
+Responsibilities:
+Phone no:
+Email Id:
+Research areas:
+Website address:
+Awards & Accolades with various fields such as award title, Year &
+etc:
+Selected publications details with various fields such as title,
+authors, journal name, year & etc:
+1
+Current project details with various fields such as title, sponsoring
+agency & etc:
+Group members details with various fields such as name, area of
+research & etc:
+
+
+_______________________LEX PARSE EXAMPLE________________________________
+
+
+\<h3[ \r]style=\"color:#ff0;[ \r]font-weight:[ \r]bold;\"\>.*\<\/h3\>   {
+                    return H3; 
+                  }
+[a-z]*@[a-z]*\.[a-z]*      { printf("Email found\n"); }
+resp-tab2                  {  yylval.str = strdup(yytext); return PUBSTART; }
+\<p\>                      {  yylval.str = strdup(yytext); return P; }
+\<\/p\>                    { yylval.str = strdup(yytext); return P_CLOSE;}
+\<\/div\>                  { printf("pubend found\n"); return PUBEND; }
+\<.*\>                      /* Ignore this */
+[0-9]+                     { yylval.str = strdup(yytext); }
+\n                         /* ignore end of line */;
+[ \t]                      /* ignore whitespace */;
+.                          /* ignore */
+
+\<.*\>      { printf("Ignore all tags %s. Tags ignored", yytext); }
+[ \r\t\n]{2,3}    /*ignore*/
+
+
+
+
+_______________________YACC PARSE EXAMPLE_____________________________________
+
+pub:
+        P txt P_CLOSE { printf("pclose p detected. \n"); }
+
+txt: 
+        txt TXT  {              //char* s=malloc(sizeof(char)*(strlen($1)+strlen($2)+1));
+                                //strcpy(s,$2); 
+                                //strcat(s,$2);
+                                //$$=strdup(s);
+                                }
+
+        |  TXT { //char *s = malloc(sizeof(char)*(strlen($1)+1));
+                 //strcpy(s, $1); 
+                 //printf("%s", $1);
+                }
+        ;
+
+ignore:
+        ignore PUBEND | ignore P | ignore PUBSTART | ignore P_CLOSE | ignore TXT | /*empty*/
+        ;
